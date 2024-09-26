@@ -11,6 +11,7 @@ const getData = async () => {
     const data = await response.json();
 
     console.log(data.coins);
+    console.log(data);
 
     coins.value = data.coins;
   } catch (e) {
@@ -25,14 +26,9 @@ onMounted(() => {
 
 <template>
   <div class="showCoins">
-    <div v-for="coin in coins" :key="coin.id">
+    <div v-for="coin in Object.values(coins).slice(0, 30)" :key="coin.id">
       <CoinCard :name="coin.fullname" :logo-url="coin.logo"></CoinCard>
     </div>
-    <CoinCard></CoinCard>
-    <CoinCard></CoinCard>
-    <CoinCard></CoinCard>
-    <CoinCard></CoinCard>
-    <CoinCard></CoinCard>
   </div>
 </template>
 

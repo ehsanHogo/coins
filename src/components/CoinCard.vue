@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <div class="coinCard">
-    <div class="coinName">{{ name }} name of coin</div>
+    <div class="coinName">{{ name }}</div>
 
     <div class="coinLogo">
       <img class="logoPic" :src="logoUrl" alt="Coin Logo" />
