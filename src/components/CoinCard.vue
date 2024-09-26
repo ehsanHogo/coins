@@ -21,6 +21,8 @@ defineProps({
 
   display: flex;
 
+  justify-content: center;
+  align-items: center;
   background-color: aquamarine;
   padding: 1rem 1rem;
   border-radius: 10px;
@@ -32,6 +34,9 @@ defineProps({
 
 .coinLogo {
   width: 50%;
+
+  display: flex;
+  justify-content: end;
 }
 
 .logoPic {
