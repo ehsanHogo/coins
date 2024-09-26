@@ -10,7 +10,9 @@ import ShowTrade from "./components/ShowTrade.vue";
     <ShowCoins></ShowCoins>
   </div>
 
-  <div><ShowTrade></ShowTrade></div>
+  <div>
+    <ShowTrade></ShowTrade>
+  </div>
 </template>
 
 <style scoped></style>

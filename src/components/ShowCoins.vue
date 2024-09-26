@@ -12,8 +12,6 @@ const getCoins = async () => {
 
     const data = await response.json();
 
-    // console.log(data.coins);
-
     filteredCoins.value = Object.fromEntries(
       Object.entries(data.coins).slice(0, 30)
     );
@@ -47,7 +45,6 @@ onMounted(() => {
 
 .coinsList {
   padding-bottom: 1rem;
-  color: white;
   text-align: center;
 }
 </style>

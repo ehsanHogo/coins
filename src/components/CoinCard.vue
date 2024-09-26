@@ -23,8 +23,8 @@ defineProps({
 
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
-  padding: 1rem 1rem;
+  background-color: rgb(127, 197, 255);
+  padding: 1rem 2rem;
   border-radius: 10px;
 }
 

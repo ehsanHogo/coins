@@ -2,18 +2,15 @@
 import { computed, onMounted, ref } from "vue";
 import TradeCard from "./TradeCard.vue";
 const pairs = ref();
-
 const coins = ref();
+
 const getData = async () => {
   const res = await fetch("https://api.exir.io/v2/constants");
 
   const data = await res.json();
 
-  console.log(data);
-
   coins.value = data.coins;
   pairs.value = data.pairs;
-  console.log("find : ", pairs.value);
 };
 
 const findLogo = (name) => {
@@ -60,7 +57,6 @@ onMounted(() => {
 
 .tradeList {
   padding: 1rem 0;
-  color: white;
   text-align: center;
 }
 </style>
