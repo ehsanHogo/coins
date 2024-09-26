@@ -1,8 +1,10 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import CoinCard from "./components/CoinCard.vue";
 
 const coins = ref();
+
+const filteredCoins = ref();
 
 const getData = async () => {
   try {
@@ -11,9 +13,10 @@ const getData = async () => {
     const data = await response.json();
 
     console.log(data.coins);
-    console.log(data);
 
-    coins.value = data.coins;
+    filteredCoins.value = Object.fromEntries(
+      Object.entries(data.coins).slice(0, 30)
+    );
   } catch (e) {
     console.log(e);
   }
@@ -26,7 +29,7 @@ onMounted(() => {
 
 <template>
   <div class="showCoins">
-    <div v-for="coin in Object.values(coins).slice(0, 30)" :key="coin.id">
+    <div v-for="coin in filteredCoins" :key="coin.id">
       <CoinCard :name="coin.fullname" :logo-url="coin.logo"></CoinCard>
     </div>
   </div>
