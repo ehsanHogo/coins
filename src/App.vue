@@ -1,18 +1,29 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import ShowCoins from "./components/ShowCoins.vue";
+import { Bar } from "vue-chartjs";
+import {
+  Chart,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js/auto";
 
-import ShowTrade from "./components/ShowTrade.vue";
+// Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+
+const chartData = {
+  labels: ["January", "February", "March"],
+  datasets: [{ data: [40, 20, 12] }],
+};
+
+const chartOptions = {
+  responsive: true,
+};
 </script>
 
 <template>
-  <div>
-    <ShowCoins></ShowCoins>
-  </div>
-
-  <div>
-    <ShowTrade></ShowTrade>
-  </div>
+  < <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
 </template>
 
 <style scoped></style>
