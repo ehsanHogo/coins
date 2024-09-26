@@ -8,7 +8,6 @@
 body {
   width: 100%;
 
-  /* background-color: cadetblue; */
-
-  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.705);
+  padding: 3rem;
 }
