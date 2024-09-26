@@ -6,13 +6,13 @@ const coins = ref();
 
 const filteredCoins = ref();
 
-const getData = async () => {
+const getCoins = async () => {
   try {
     const response = await fetch("https://api.exir.io/v2/constants");
 
     const data = await response.json();
 
-    console.log(data.coins);
+    // console.log(data.coins);
 
     filteredCoins.value = Object.fromEntries(
       Object.entries(data.coins).slice(0, 30)
@@ -23,11 +23,13 @@ const getData = async () => {
 };
 
 onMounted(() => {
-  getData();
+  getCoins();
 });
 </script>
 
 <template>
+  <h1 class="coinsList">Coins List</h1>
+
   <div class="showCoins">
     <div v-for="coin in filteredCoins" :key="coin.id">
       <CoinCard :name="coin.fullname" :logo-url="coin.logo"></CoinCard>
@@ -41,5 +43,11 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr;
   column-width: 50%;
   gap: 1rem;
+}
+
+.coinsList {
+  padding-bottom: 1rem;
+
+  text-align: center;
 }
 </style>
