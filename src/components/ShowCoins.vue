@@ -47,7 +47,7 @@ onMounted(() => {
 
 .coinsList {
   padding-bottom: 1rem;
-
+  color: white;
   text-align: center;
 }
 </style>
