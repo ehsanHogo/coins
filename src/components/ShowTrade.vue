@@ -33,15 +33,13 @@ onMounted(() => {
   <div>
     <h1 class="tradeList">Trade</h1>
 
-    <div v-for="pair in pairs" :key="pair.id" class="pairCards">
+    <div class="pairCards">
       <TradeCard
-        :pairName="pair.name"
-        :pairOne="pair.pair_base"
-        :pairTwo="pair.pair_2"
+        v-for="pair in pairs"
+        :key="pair.id"
+        :pair="pair"
         :pairTwoLogo="findLogo(pair.pair_2)"
         :pairOneLogo="findLogo(pair.pair_base)"
-        :pairMinPrice="pair.min_price"
-        :pairMaxPrice="pair.max_price"
       ></TradeCard>
     </div>
   </div>

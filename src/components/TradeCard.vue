@@ -1,10 +1,6 @@
 <script setup>
 defineProps({
-  pairName: String,
-  pairOne: String,
-  pairTwo: String,
-  pairMinPrice: Number,
-  pairMaxPrice: Number,
+  pair: Object,
   pairTwoLogo: String,
   pairOneLogo: String,
 });
@@ -12,23 +8,21 @@ defineProps({
 
 <template>
   <div class="pairCard">
-    <div class="pairName">{{ pairName }}</div>
+    <div class="pairName">{{ pair.name }}</div>
     <div class="tradeCard">
       <div class="pairOne">
         <img class="coinLogo" :src="pairOneLogo" alt="logo" />
-        <p>{{ pairOne }}</p>
-
-        
+        <p>{{ pair.pair_base }}</p>
       </div>
 
       <div class="pairTwo">
         <img class="coinLogo" :src="pairTwoLogo" alt="logo" />
 
-        <p>{{ pairTwo }}</p>
+        <p>{{ pair.pair_2 }}</p>
       </div>
 
-      <div class="pairPrice">{{ pairMinPrice }}$</div>
-      <div class="pairPrice">{{ pairMaxPrice }}$</div>
+      <div class="pairPrice">{{ pair.min_price }}$</div>
+      <div class="pairPrice">{{ pair.max_price }}$</div>
     </div>
   </div>
 </template>
@@ -42,9 +36,6 @@ defineProps({
   border-radius: 20px;
 
   margin: 1rem;
-
-
- 
 }
 .tradeCard {
   display: flex;
@@ -58,7 +49,6 @@ defineProps({
   width: 25%;
   align-items: center;
   gap: 1rem;
-
 }
 
 .pairTwo {
@@ -66,7 +56,6 @@ defineProps({
   display: flex;
   align-items: center;
   gap: 1rem;
-
 }
 
 .pairPrice {

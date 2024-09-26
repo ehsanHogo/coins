@@ -29,9 +29,12 @@ onMounted(() => {
   <h1 class="coinsList">Coins List</h1>
 
   <div class="showCoins">
-    <div v-for="coin in filteredCoins" :key="coin.id">
-      <CoinCard :name="coin.fullname" :logo-url="coin.logo"></CoinCard>
-    </div>
+    <CoinCard
+      v-for="coin in filteredCoins"
+      :key="coin.id"
+      :name="coin.fullname"
+      :logo-url="coin.logo"
+    ></CoinCard>
   </div>
 </template>
 
